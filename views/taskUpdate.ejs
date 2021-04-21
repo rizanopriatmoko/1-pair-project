@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Edit Task</title>
+    </head>
+    <body>
+        <form action="/tasks/<%=result.dataValues.id%>/edit" method="post">
+            <label>Task Name</label><br/>
+            <input type="text" name="name" value="<%=result.dataValues.name%>"><br/>
+            <label>Status</label><br/>
+            <input type="radio" name="status" value="To Do" <%= result.dataValues.status === 'To Do' ? 'checked' : '' %>>To Do</label>
+            <input type="radio" name="status" value="On Going" <%= result.dataValues.status === 'On Going' ? 'checked' : '' %>>On Going</label>
+            <input type="radio" name="status" value="Done" <%= result.dataValues.status === 'Done' ? 'checked' : '' %>>Done</label><br/>
+            <button type="submit">Save</button><a href="/tasks"> Cancel </a>
+        </form>
+    </body>
+</html>

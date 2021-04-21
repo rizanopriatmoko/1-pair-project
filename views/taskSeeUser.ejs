@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <%- include('partials/navbar')%>
+</head>
+<body>
+    <h1></h1>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    <% for(let i = 0; i < result.Users.length; i++){%>
+            <tr>
+                <td><%= result.Users[i].name %></td>
+                <td><%= result.Users[i].email %></td>
+            </tr>
+    <% }%>
+    </table>
+</body>
+</html>

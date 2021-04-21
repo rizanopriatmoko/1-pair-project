@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Add Task</title>
+    </head>
+    <body>
+        <form action="/tasks/add" method="post">
+            <label>Task Name</label><br/>
+            <input type="text" name="name" placeholder="e.g: Membuat MVP"><br/>
+            <label>Status</label><br/>
+            <input type="radio" name="status" value="To Do">To Do</label>
+            <input type="radio" name="status" value="On Going">On Going</label>
+            <input type="radio" name="status" value="Done">Done</label><br/>
+            <button type="submit">Save</button><a href="/tasks"> Cancel </a>
+        </form>
+    </body>
+</html>

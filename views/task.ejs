@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tasks</title>
+    <%- include('partials/navbar')%>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <h2><a href="/tasks/add">Add Task</a></h2>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    <% for(let i = 0; i < result.length; i++){%>
+            <tr>
+                <td><%= result[i].name %></td>
+                <td><%= result[i].status %></td>
+                <td><a href="/tasks/<%= result[i].id %>/edit">Edit</a> | <a href="/tasks/<%= result[i].id %>/delete" onclick="return confirm('Delete?');">Delete</a> | <a href="/tasks/<%= result[i].id %>/seeUser">See Users</a></td>
+            </tr>
+    <% }%>
+    </table>
+</body>
+</html>
