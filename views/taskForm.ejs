@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <head>
-        <title>Add Task</title>
-    </head>
+    <%- include('./partials/head', {title: 'Add Task'}) %>
     <body>
+        <div style="height: 32px;"></div>
+        <div class="form-add-task">
+        <h1>Add New Task</h1>
         <form action="/tasks/add" method="post">
-            <label>Task Name</label><br/>
-            <input type="text" name="name" placeholder="e.g: Membuat MVP"><br/>
-            <label>Status</label><br/>
-            <input type="radio" name="status" value="To Do">To Do</label>
-            <input type="radio" name="status" value="On Going">On Going</label>
-            <input type="radio" name="status" value="Done">Done</label><br/>
-            <button type="submit">Save</button><a href="/tasks"> Cancel </a>
+            <div class="form-group">
+                <label class="col-form-label" for="inputDefault">Task Name</label>
+                <input type="text" class="form-control" placeholder="e.g: Membuat MVP" id="inputDefault" name="name"><br>
+                
+                <label>Status</label><br/>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="To Do">
+                    <label class="custom-control-label" for="customRadio1">To Do</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="On Going">
+                    <label class="custom-control-label" for="customRadio2">On Going</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio3" name="status" class="custom-control-input" value="Done">
+                    <label class="custom-control-label" for="customRadio3">Done</label>
+                </div><br>
+                <button type="submit" class="btn btn-outline-success">Success</button>
+                <a href="/tasks"><button type="button" class="btn btn-outline-warning">Cancel</button></a>
+            </div>
         </form>
+        </div>
+        <style>
+            .form-add-task{
+            display: flex;
+            align-items: center;
+            flex-direction: column;    
+            }
+        </style>
     </body>
 </html>

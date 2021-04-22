@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <head>
-        <title>Sign In</title>
-    </head>
+    <%- include('./partials/head', {title: 'Login Page'}) %>
     <body>
-        <a href="/signUp">Sign Up</a>
+        <div style="height: 32px;"></div>
+        <h1>Login Page</h1><br>
         <form action="/" method="POST">
-            <label>Email</label><br/>
-            <input type="text" name="email" placeholder="e.g: john@jimeil.com"><br/>
-            <label>password</label><br/>
-            <input type="password" name="password"placeholder="input password"><br/>
-            <button type="submit">Sign In</button>
+            <div class="form-login">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" style="width: 360px;">
+              </div><br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" style="width: 360px;">
+              </div><br>
+              <button type="submit" class="btn btn-primary">Sign In</button><br>
+              <p>You don't have account? click here <a href="/signUp">Sign up</a>.</p>
+            </div>
         </form>
+        <style>
+            .form-login{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            }
+            h1 {
+            text-align: center;  
+            } 
+        </style>
     </body>
 </html>
