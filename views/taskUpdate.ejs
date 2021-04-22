@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <head>
-        <title>Edit Task</title>
-    </head>
+    <%- include('./partials/head', {title: 'Form Edit Task'}) %>
     <body>
+        <div style="height: 32px;"></div>
+        <div style="margin-left: 32px;">
+        <h1>Edit Task</h1>
         <form action="/tasks/<%=result.dataValues.id%>/edit" method="post">
-            <label>Task Name</label><br/>
-            <input type="text" name="name" value="<%=result.dataValues.name%>"><br/>
-            <label>Status</label><br/>
-            <input type="radio" name="status" value="To Do" <%= result.dataValues.status === 'To Do' ? 'checked' : '' %>>To Do</label>
-            <input type="radio" name="status" value="On Going" <%= result.dataValues.status === 'On Going' ? 'checked' : '' %>>On Going</label>
-            <input type="radio" name="status" value="Done" <%= result.dataValues.status === 'Done' ? 'checked' : '' %>>Done</label><br/>
-            <button type="submit">Save</button><a href="/tasks"> Cancel </a>
+            <div class="form-group">
+                <label class="col-form-label" for="inputDefault"><h4>Task Name:</h4></label>
+                <input type="text" class="form-control" placeholder="Default input" id="inputDefault" style="width: 320px;" name="name" value="<%=result.dataValues.name%>">
+              </div>
+              <label><h4>Status:</h4></label><br/>
+              <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="To Do" <%= result.dataValues.status === 'To Do' ? 'checked' : '' %>>
+                  <label class="custom-control-label" for="customRadio1">To Do</label>
+              </div>
+              <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="On Going" <%= result.dataValues.status === 'On Going' ? 'checked' : '' %>>
+                  <label class="custom-control-label" for="customRadio2">On Going</label>
+              </div>
+              <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio3" name="status" class="custom-control-input" value="Done" <%= result.dataValues.status === 'Done' ? 'checked' : '' %>>
+                  <label class="custom-control-label" for="customRadio3">Done</label>
+              </div><br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <a href="/tasks"><button type="button" class="btn btn-warning">Cancel</button></a>
         </form>
+    </div>
     </body>
 </html>

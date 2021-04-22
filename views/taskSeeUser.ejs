@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Users</title>
-    <%- include('partials/navbar')%>
-</head>
+    <%- include('./partials/head', {title: 'User'}) %>
 <body>
-    <h1></h1>
-    <table border=1>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>
-    <% for(let i = 0; i < result.Users.length; i++){%>
-            <tr>
-                <td><%= result.Users[i].name %></td>
-                <td><%= result.Users[i].email %></td>
-            </tr>
-    <% }%>
-    </table>
+    <%- include('partials/navbar')%>
+    <div style="height: 32px;"></div>
+    <h1 style="text-align: center;">User Info</h1><br>
+    <table class="table table-hover" border="1px" style="width: 50%; margin: auto;"> 
+        <thead>
+          <tr style="text-align: center;">
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < result.Users.length; i++){%>
+                <tr class="table-primary" style="text-align: center;">
+                    <td><%= result.Users[i].name %></td>
+                    <td><%= result.Users[i].email %></td>
+                </tr>
+            <% }%>
+        </tbody>
+      </table>
 </body>
 </html>
+
