@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tasks</title>
+    <%- include('partials/navbar')%>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    <% for(let i = 0; i < result[0].Tasks.length; i++){%>
+            <tr>
+                <td><%= result[0].Tasks[i].name %></td>
+                <td><%= result[0].Tasks[i].status %></td>
+                <td><a href="/tasks/<%= result[0].Tasks[i].id %>/editUser">Edit Status</a> | <a href="/tasks/<%= result[0].Tasks[i].id %>/seeUser">See Users</a></td>
+            </tr>
+    <% }%>
+    </table>
+</body>
+</html>
+
+<!-- UNTUK BUKAN ADMIN -->
