@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head', {title: 'Task'}) %>
+    <body>
+    <%- include('partials/navbar')%>
+    <div style="height: 32px;"></div>
+    <h1 style="text-align: center;">Tasks</h1><br>
+    <table class="table table-hover" style="margin: auto; width: 50%;" border="1">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col" style="text-align: center;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < result.length; i++){%>
+                <tr class="table-info">
+                    <td><%= result[i].name %></td>
+                    <td><%= result[i].status %></td>
+                    <td style="text-align: center;">
+                        <a href="/tasks/<%= result[i].id %>/edit"><button type="button" class="btn btn-primary">Edit</button></a> 
+                        <a href="/tasks/<%= result[i].id %>/delete" onclick="return confirm('Delete?');"><button type="button" class="btn btn-danger">Delete</button></a>
+                        <a href="/tasks/<%= result[i].id %>/seeUser"><button type="button" class="btn btn-secondary">See Users</button></a>
+                    
+                    </td>
+                </tr>
+            <% }%>
+        </tbody>
+      </table><br>
+      <h2 style="text-align: center;"><a href="/tasks/add">Add Task</a></h2>
+</body>
+</html>
+

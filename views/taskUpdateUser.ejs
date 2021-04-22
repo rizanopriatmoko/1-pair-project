@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <%- include('./partials/head', {title: 'Update Page'}) %>
+    <body>
+        <form action="/tasks/<%=result.dataValues.id%>/editUser" method="post">
+            <div class="form-group">
+                <label><h4>Status:</h4></label><br/>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="To Do" <%= result.dataValues.status === 'To Do' ? 'checked' : '' %>>
+                    <label class="custom-control-label" for="customRadio1">To Do</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="On Going" <%= result.dataValues.status === 'On Going' ? 'checked' : '' %>>
+                    <label class="custom-control-label" for="customRadio2">On Going</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio3" name="status" class="custom-control-input" value="Done" <%= result.dataValues.status === 'Done' ? 'checked' : '' %>>
+                    <label class="custom-control-label" for="customRadio3">Done</label>
+                </div><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/tasks"><button type="button" class="btn btn-warning">Cancel</button></a>
+                </div>
+        </form>
+    </body>
+</html>
+
+
+<!-- UNTUK BUKAN ADMIN -->

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head', {title: 'User Task'}) %>
+<body>
+    <%- include('partials/navbar')%>
+    <div style="height: 32px;"></div>
+    <h1>Hallo, <%= temp.name %></h1><br>
+        
+    <form action="/users/<%=temp.id%>/seeTasks" method="post">
+        <div class="form-group">
+            <label>Add Task</label><br/>
+            <select class="custom-select" name="task" style="width: 360px;">
+              <option selected disabled>--- Select Task ---</option>
+              <% for(let i = 0; i < tempTask.length; i++){ %>
+                <option value="<%= tempTask[i].id %>"><%= tempTask[i].name %></option>
+              <% } %>
+            </select>
+          </div><br>
+          <button type="submit" class="btn btn-outline-primary">Add</button>
+          <a href="/users"><button type="button" class="btn btn-outline-warning">Cancel</button></a>
+    </form><br>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < temp.Tasks.length; i++){%>
+            <tr class="table-secondary">
+                <td><%= temp.Tasks[i].name %></td>
+                <td><%= temp.Tasks[i].status %></td>
+            </tr>
+        <% }%>
+        </tbody>
+      </table>
+</body>
+</html>

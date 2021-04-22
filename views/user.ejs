@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head', {title: 'User'}) %>
+<body>
+    <%- include('partials/navbar')%>
+    
+    <div style="height: 32px;"></div>
+    <h1 style="text-align: center;">Users</h1><br>
+    <table class="table table-hover" border="1px" style="width: 50%; margin: auto;"> 
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < result.length; i++){%>
+          <tr class="table-primary">
+            <td><%= result[i].name %></td>
+            <td><%= result[i].fullRole() %></td>
+            <td><%= result[i].email %></td>
+            <td><a href="/users/<%= result[i].id %>/seeTasks"><button type="button" class="btn btn-secondary">See Tasks</button></a></td>
+          </tr>
+          <% }%>
+        </tbody>
+      </table>
+</body>
+</html>
